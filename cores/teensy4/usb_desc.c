@@ -207,7 +207,7 @@ static uint8_t keymedia_report_desc[] = {
 };
 #endif
 
-#if defined(MOUSE_INTERFACE)
+#ifdef MOUSE_INTERFACE
 // Mouse Protocol 1, HID 1.11 spec, Appendix B, page 59-60, with wheel extension
 static uint8_t mouse_report_desc[] = {
         0x05, 0x01,                     // Usage Page (Generic Desktop)

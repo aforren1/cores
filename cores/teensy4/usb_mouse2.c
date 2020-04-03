@@ -55,7 +55,6 @@ uint8_t usb_mouse2_buttons_state=0;
 //#define DEFAULT_XRES 1280
 //#define DEFAULT_YRES 800
 
-// commented out-- if MOUSE2_INTERFACE is defined, so is MOUSE_INTERFACE
 #define DEFAULT_XRES 1366
 #define DEFAULT_YRES 768
 //#define DEFAULT_XRES 1440
@@ -122,7 +121,7 @@ int usb_mouse2_buttons(uint8_t left, uint8_t middle, uint8_t right, uint8_t back
         if (right) mask   |= 2;
         if (back) mask    |= 8;
         if (forward) mask |= 16;
-        usb_mouse_buttons_state = mask;
+        usb_mouse2_buttons_state = mask;
         return usb_mouse2_move(0, 0, 0, 0);
 }
 
