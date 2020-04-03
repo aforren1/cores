@@ -5,6 +5,7 @@
 #include "usb_seremu.h"
 #include "usb_keyboard.h"
 #include "usb_mouse.h"
+#include "usb_mouse2.h"
 #include "usb_joystick.h"
 #include "usb_flightsim.h"
 #include "usb_touch.h"
@@ -415,6 +416,9 @@ static void endpoint0_setup(uint64_t setupdata)
 		#endif
 		#if defined(MOUSE_INTERFACE)
 		usb_mouse_configure();
+		#endif
+		#if defined(MOUSE2_INTERFACE)
+		usb_mouse2_configure();
 		#endif
 		#if defined(FLIGHTSIM_INTERFACE)
 		usb_flightsim_configure();
