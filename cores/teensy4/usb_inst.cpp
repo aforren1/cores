@@ -51,6 +51,10 @@ usb_keyboard_class Keyboard;
 usb_mouse_class Mouse;
 #endif
 
+#ifdef MOUSE2_INTERFACE
+usb_mouse2_class Mouse2;
+#endif
+
 #ifdef RAWHID_INTERFACE
 usb_rawhid_class RawHID;
 #endif

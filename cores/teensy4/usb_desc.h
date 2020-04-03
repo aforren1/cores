@@ -276,6 +276,46 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
   #define ENDPOINT5_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
   #define ENDPOINT6_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
 
+#elif defined(USB_DUAL_MOUSE)
+  #define VENDOR_ID		0x16C0
+  #define PRODUCT_ID		0x0484
+  #define MANUFACTURER_NAME	{'T','e','e','n','s','y','d','u','i','n','o'}
+  #define MANUFACTURER_NAME_LEN	11
+  #define PRODUCT_NAME		{'K','e','y','b','o','a','r','d','/', 'D', 'u', 'a', 'l', ' ', 'M', 'o', 'u', 's', 'e'}
+  #define PRODUCT_NAME_LEN	19
+  #define EP0_SIZE		64
+  #define NUM_ENDPOINTS         6
+  #define NUM_USB_BUFFERS	24
+  #define NUM_INTERFACE		5
+  #define SEREMU_INTERFACE      2	// Serial emulation
+  #define SEREMU_TX_ENDPOINT    2
+  #define SEREMU_TX_SIZE        64
+  #define SEREMU_TX_INTERVAL    1
+  #define SEREMU_RX_ENDPOINT    2
+  #define SEREMU_RX_SIZE        32
+  #define SEREMU_RX_INTERVAL    2
+  #define KEYBOARD_INTERFACE    0	// Keyboard
+  #define KEYBOARD_ENDPOINT     3
+  #define KEYBOARD_SIZE         8
+  #define KEYBOARD_INTERVAL     1
+  #define KEYMEDIA_INTERFACE    4	// Keyboard Media Keys
+  #define KEYMEDIA_ENDPOINT     4
+  #define KEYMEDIA_SIZE         8
+  #define KEYMEDIA_INTERVAL     4
+  #define MOUSE_INTERFACE       1	// Mouse
+  #define MOUSE_ENDPOINT        5
+  #define MOUSE_SIZE            8
+  #define MOUSE_INTERVAL        1
+  #define MOUSE2_INTERFACE      3 // Mouse2 (just replaced joystick from USB_HID)
+  #define MOUSE2_ENDPOINT       6
+  #define MOUSE2_SIZE           8
+  #define MOUSE2_INTERVAL       1
+  #define ENDPOINT2_CONFIG	ENDPOINT_RECEIVE_INTERRUPT + ENDPOINT_TRANSMIT_INTERRUPT
+  #define ENDPOINT3_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+  #define ENDPOINT4_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+  #define ENDPOINT5_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+  #define ENDPOINT6_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+
 #elif defined(USB_SERIAL_HID)
   #define VENDOR_ID		0x16C0
   #define PRODUCT_ID		0x0487
