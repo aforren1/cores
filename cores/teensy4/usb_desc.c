@@ -2201,7 +2201,7 @@ PROGMEM const uint8_t usb_config_descriptor_12[CONFIG_DESC_SIZE] = {
         0x03,                                   // bmAttributes (0x03=intr)
         MOUSE2_SIZE, 0,                          // wMaxPacketSize
         MOUSE2_INTERVAL,                         // bInterval
-#endif MOUSE2_INTERFACE
+#endif // MOUSE2_INTERFACE
 
 #ifdef RAWHID_INTERFACE
 	// configuration for 12 Mbit/sec speed

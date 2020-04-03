@@ -191,7 +191,7 @@ int usb_mouse2_move(int8_t x, int8_t y, int8_t wheel, int8_t horiz)
 int usb_mouse2_position(uint16_t x, uint16_t y)
 {
 	if (x >= usb_mouse2_resolution_x) x = usb_mouse2_resolution_x - 1;
-	usb_mouse_position_x = x;
+	usb_mouse2_position_x = x;
 	if (y >= usb_mouse2_resolution_y) y = usb_mouse2_resolution_y - 1;
 	usb_mouse2_position_y = y;
 	uint8_t buffer[5];
