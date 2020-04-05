@@ -3,6 +3,7 @@
 #include "usb_desc.h"
 #include "usb_serial.h"
 #include "usb_seremu.h"
+#include "usb_rawhid.h"
 #include "usb_keyboard.h"
 #include "usb_mouse.h"
 #include "usb_joystick.h"
@@ -245,6 +246,26 @@ static void isr(void)
 				endpoint0_complete();
 			}
 			completestatus &= endpointN_notify_mask;
+#if 1
+			if (completestatus) {
+
+				// transmit:
+				uint32_t tx = completestatus >> 16;
+				while (tx) {
+					int p=__builtin_ctz(tx);
+					run_callbacks(endpoint_queue_head + p * 2 + 1);
+					tx &= ~(1<<p);
+				}
+
+				// receive:
+				uint32_t rx = completestatus & 0xffff;
+				while(rx) {
+					int p=__builtin_ctz(rx);
+					run_callbacks(endpoint_queue_head + p * 2);
+					rx &= ~(1<<p);
+				};
+			}
+#else
 			if (completestatus) {
 				int i;   // TODO: optimize with __builtin_ctz()
 				for (i=2; i <= NUM_ENDPOINTS; i++) {
@@ -256,6 +277,8 @@ static void isr(void)
 					}
 				}
 			}
+#endif
+
 		}
 	}
 	if (status & USB_USBSTS_URI) { // page 3164
